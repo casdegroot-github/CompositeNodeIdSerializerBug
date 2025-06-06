@@ -37,7 +37,7 @@ public class ShopSearchResultIdentifierNodeIdSerializerTest
         var identifierString = System.Text.Encoding.UTF8.GetString(buffer.AsSpan(0, written));
         identifierString.ShouldNotBeNullOrEmpty();
         identifierString.ShouldBe(
-            "{\"Query\":\"test query\",\"SearchQueryConfig\":{\"SearchQueryId\":\"search123\",\"LtrEnabled\":true,\"Rewriters\":[\"rewriter1\",\"rewriter2\"],\"TestGroup\":\"testGroup1\",\"SkipMasterQueryMapping\":false,\"SkipRedirect\":true}}");
+            "{\"Query\"\\:\"test query\",\"SearchQueryConfig\"\\:{\"SearchQueryId\"\\:\"search123\",\"LtrEnabled\"\\:true,\"Rewriters\"\\:[\"rewriter1\",\"rewriter2\"],\"TestGroup\"\\:\"testGroup1\",\"SkipMasterQueryMapping\"\\:false,\"SkipRedirect\"\\:true}}");
     }
 
     [Test]

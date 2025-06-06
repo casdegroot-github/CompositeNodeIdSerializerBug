@@ -41,12 +41,13 @@ When upgrading from HotChocolate 15.1.6-p.1 to 15.1.6-p.2, the node ID serializa
 ### Reproduction Steps
 
 1. Run tests with HotChocolate 15.1.6-p.1 - ✅ Tests pass
-2. Update package reference to 15.1.6-p.2 
+2. Update package reference to 15.1.6-p.2
 3. Run tests again - ❌ Tests fail due to changed serialization format
 
 ## Test Case
 
 The test verifies that:
+
 1. A complex object with nested properties serializes correctly
 2. The serialized format can be parsed back to the original object
 3. All properties are preserved during the serialization round-trip

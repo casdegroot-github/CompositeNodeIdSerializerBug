@@ -30,23 +30,28 @@ public class ShopSearchResultIdentifierNodeIdSerializer
         ReadOnlySpan<byte> buffer,
         out ShopSearchResultIdentifier value)
     {
-        try
+        if (TryParseIdPart(buffer, out string? serializedIdentifier, out _ ))
         {
-            var identifier = JsonSerializer.Deserialize<ShopSearchResultIdentifier?>(buffer);
-            if (identifier is null)
+            try
             {
-                value = default;
+                var identifier = JsonSerializer.Deserialize<ShopSearchResultIdentifier>(serializedIdentifier);
+                if (identifier is null)
+                {
+                    value = default!;
+                    return false;
+                }
+
+                value = identifier;
+                return true;
+            }
+            catch
+            {
+                value = default!;
                 return false;
             }
-
-            value = identifier;
-
-            return true;
         }
-        catch
-        {
-            value = default;
-            return false;
-        }
+
+        value = default!;
+        return false;
     }
 }
