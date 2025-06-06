@@ -8,9 +8,14 @@ Node serialization has been changed, where now the ID does not have escape chara
 
 ## Setup
 
-- **HotChocolate Version**: 15.1.6-p.1
+- **HotChocolate Version**: 15.1.6-p.1 (working) / 15.1.6-p.2 (broken)
 - **Target Framework**: .NET 9.0
 - **Test Framework**: NUnit with Shouldly assertions
+
+## Version Behavior
+
+- ✅ **15.1.6-p.1**: Tests pass - Node ID serialization works as expected
+- ❌ **15.1.6-p.2**: Tests fail - Node ID serialization format changed, breaking existing behavior
 
 ## Structure
 
@@ -31,7 +36,13 @@ The serializer should properly format and parse composite node IDs with consiste
 
 ## Current Issue
 
-When upgrading to newer versions of HotChocolate, the node ID serialization format changes, causing tests that verify the exact serialized format to fail.
+When upgrading from HotChocolate 15.1.6-p.1 to 15.1.6-p.2, the node ID serialization format changes, causing tests that verify the exact serialized format to fail. The specific change affects how escape characters are handled in the serialized output.
+
+### Reproduction Steps
+
+1. Run tests with HotChocolate 15.1.6-p.1 - ✅ Tests pass
+2. Update package reference to 15.1.6-p.2 
+3. Run tests again - ❌ Tests fail due to changed serialization format
 
 ## Test Case
 

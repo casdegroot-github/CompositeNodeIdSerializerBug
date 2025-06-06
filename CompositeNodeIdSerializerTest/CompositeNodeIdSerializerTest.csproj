@@ -7,9 +7,9 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="HotChocolate" Version="15.1.6-p.2" />
-        <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="15.1.6-p.2" />
-        <PackageReference Include="HotChocolate.Types.Analyzers" Version="15.1.6-p.2" />
+        <PackageReference Include="HotChocolate" Version="15.1.6-p.1" />
+        <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="15.1.6-p.1" />
+        <PackageReference Include="HotChocolate.Types.Analyzers" Version="15.1.6-p.1" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
         <PackageReference Include="NUnit" Version="4.3.2" />
         <PackageReference Include="Shouldly" Version="4.3.0" />
