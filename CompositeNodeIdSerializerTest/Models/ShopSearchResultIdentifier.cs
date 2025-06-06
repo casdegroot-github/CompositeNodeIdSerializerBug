@@ -1,0 +1,3 @@
+namespace CompositeNodeIdSerializerTest.Models;
+
+public record ShopSearchResultIdentifier(string Query, ShopSearchConfig SearchQueryConfig);
