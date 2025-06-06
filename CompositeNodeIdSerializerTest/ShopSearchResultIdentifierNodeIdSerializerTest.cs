@@ -8,10 +8,10 @@ namespace CompositeNodeIdSerializerTest;
 [TestFixture]
 public class ShopSearchResultIdentifierNodeIdSerializerTest
 {
-    private ShopSearchResultIdentifierNodeIdSerializer serializer = null!;
+    private ShopSearchResultIdentifierNodeIdSerializerSingle serializer = null!;
 
     [SetUp]
-    public void SetUp() => serializer = new ShopSearchResultIdentifierNodeIdSerializer();
+    public void SetUp() => serializer = new ShopSearchResultIdentifierNodeIdSerializerSingle();
 
     [Test]
     public void Format_ShopSearchResultIdentifierWithAllParametersFilled_ShouldReturnCorrectNodeIdFormatterResult()
@@ -37,7 +37,7 @@ public class ShopSearchResultIdentifierNodeIdSerializerTest
         var identifierString = System.Text.Encoding.UTF8.GetString(buffer.AsSpan(0, written));
         identifierString.ShouldNotBeNullOrEmpty();
         identifierString.ShouldBe(
-            "{\"Query\"\\:\"test query\",\"SearchQueryConfig\"\\:{\"SearchQueryId\"\\:\"search123\",\"LtrEnabled\"\\:true,\"Rewriters\"\\:[\"rewriter1\",\"rewriter2\"],\"TestGroup\"\\:\"testGroup1\",\"SkipMasterQueryMapping\"\\:false,\"SkipRedirect\"\\:true}}");
+            "{\"Query\":\"test query\",\"SearchQueryConfig\":{\"SearchQueryId\":\"search123\",\"LtrEnabled\":true,\"Rewriters\":[\"rewriter1\",\"rewriter2\"],\"TestGroup\":\"testGroup1\",\"SkipMasterQueryMapping\":false,\"SkipRedirect\":true}}");
     }
 
     [Test]
